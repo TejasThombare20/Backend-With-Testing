@@ -11,7 +11,7 @@ const note = new mongoose.Schema(
     title: {
       type: String,
       required: [true, "title is required"],
-      maxlength: [10, `Length of title must be less than 10`],
+      maxlength: [12, `Length of title must be less than 12`],
     },
 
     content: {

@@ -26,13 +26,13 @@ describe("Testing for register user operation", () => {
     expect(response.body).toEqual({ error: "user already exists" });
   });
 
-  // test("should return 200 if user register successfully", async () => {
-  //   const response = await supertest(app)
-  //     .post("/api/auth/register")
-  //     .send({ email: "testing1@gmail.com", password: "@testing" });
-  //   expect(response.status).toBe(200);
-  //   expect(response.body).toEqual({ message: " user has been created" });
-  // });
+  test("should return 200 if user register successfully", async () => {
+    const response = await supertest(app)
+      .post("/api/auth/register")
+      .send({ email: "testing1@gmail.com", password: "@testing" });
+    expect(response.status).toBe(200);
+    expect(response.body).toEqual({ message: " user has been created" });
+  });
 });
 
 describe("Testing for Login user operation", () => {

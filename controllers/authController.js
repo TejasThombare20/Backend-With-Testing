@@ -23,7 +23,7 @@ import jwt from "jsonwebtoken";
         email,
         password: hash,
       });
-      return res.status(200).send({ message: " user has been created" });
+      return res.status(200).send({ message: " user has been created" , user : CreateUser });
     } catch (error) {
       return res.status(500).send({ error: error.message });
     }
@@ -64,7 +64,7 @@ export const login = async (req, res) => {
         httpOnly: true,
       })
       .status(200)
-      .send({ message: "Logged in successfully" });
+      .send({ message: "Logged in successfully"  });
   } catch (error) {
     return res
       .status(500)
