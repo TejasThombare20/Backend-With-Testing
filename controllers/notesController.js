@@ -98,7 +98,7 @@ export const deletenote = async (req, res) => {
   }
 
   try {
-    await note.deleteOne({ _id: id }).where({ user: userId });
+    await note.findByIdAndDelete({ _id: id  });
 
     return res.status(200).send({ message: "Note deleted Successfully" });
   } catch (error) {
@@ -156,8 +156,8 @@ export const updatenote = async (req, res) => {
     if (tag) updateObject.tag = tag;
 
     const Updatednote = await note
-      .findByIdAndUpdate({ _id: id }, updateObject, { new: true })
-      .where({ user: userId });
+      .findByIdAndUpdate({ _id: id}, updateObject, { new: true })
+    
 
     
 
