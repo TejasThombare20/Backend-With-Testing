@@ -159,6 +159,10 @@ export const updatenote = async (req, res) => {
       .findByIdAndUpdate({ _id: id }, updateObject, { new: true })
       .where({ user: userId });
 
+      await Updatednote.save();
+
+      console.log("Updatednote", Updatednote)
+
     return res
       .status(200)
       .json({ message: "Note updated successfully", updatedNote: Updatednote });
